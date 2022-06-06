@@ -1,0 +1,15 @@
+// GET Pizzas from DB
+GET http://localhost:3001/api/v1/pizzas HTTP/1.1
+Content-Type: application/json
+
+###
+
+// GET Pizza by ID "name": "Чикен бомбони"
+GET http://localhost:3001/api/v1/pizzas/629df75b79d38b6c176e0878 HTTP/1.1
+Content-Type: application/json
+
+###
+
+// GET Pizza by ID "name": "Диабло 🌶️🌶️"
+GET http://localhost:3001/api/v1/pizzas/3wvzqKu93NGq7XzyT4EI HTTP/1.1
+Content-Type: application/json
