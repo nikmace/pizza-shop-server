@@ -14,6 +14,11 @@ export type QueryDto = {
 export class PizzaController {
   constructor(private readonly pizzaService: PizzaService) {}
 
+  @Get()
+  getResponse() {
+    return 'Pizzas API Endpoint';
+  }
+
   @Get(':id')
   getPizzaById(@Param('id') id: string): Promise<IPizzaDto[]> {
     return this.pizzaService.getPizzaById(id);
