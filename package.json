@@ -5,6 +5,9 @@
   "description": "Nest TypeScript starter repository",
   "license": "MIT",
   "main": "src/main.ts",
+  "engines": {
+    "node": "16.13.0"
+  },
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
