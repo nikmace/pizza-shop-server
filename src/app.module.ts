@@ -12,7 +12,9 @@ import configuration from './config/configuration';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
-        uri: config.get('MONGO_URI'),
+        uri: `mongodb+srv://${config.get('MONGO_USER')}:${config.get(
+          'MONGO_PW',
+        )}@pizza-cluster.56ojo.mongodb.net/?retryWrites=true&w=majority`,
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }),
