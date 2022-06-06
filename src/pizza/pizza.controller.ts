@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 
-import { IPizzaDto } from 'src/dto/pizza.dto';
+import { IPizzaDto } from '../dto/pizza.dto';
 import { Pizza } from './pizza.model';
 import { PizzaService } from './pizza.service';
 
