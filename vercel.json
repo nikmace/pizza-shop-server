@@ -6,11 +6,6 @@
       "use": "@vercel/node"
     }
   ],
-  "env": {
-    "MONGO_USER": "@snap_mongo_user",
-    "MONGO_PW": "@snap_mongo_pw",
-    "PORT": "@snap_port"
-  },
   "routes": [
     {
       "src": "/(.*)",
