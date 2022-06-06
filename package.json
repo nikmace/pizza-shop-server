@@ -9,6 +9,7 @@
     "node": "16.x"
   },
   "scripts": {
+    "predeploy": "npm install && npm run build",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
