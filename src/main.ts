@@ -13,8 +13,15 @@ async function bootstrap() {
   const config = app.get(ConfigService);
   app.setGlobalPrefix('/api/v1');
 
-  await app.listen(3001, () => {
-    console.log(`Application is running on port: ${config.get('port')}`);
-  });
+  console.log(`Global prefix is set for: /api/v1`);
+  console.log(`Mongo User: ${config.get('mongo_user')}`);
+
+  await app.listen(
+    process.env.PORT || 5000,
+    process.env.HOST || '0.0.0.0',
+    () => {
+      console.log(`Application is running on port: ${config.get('port')}`);
+    },
+  );
 }
 bootstrap();

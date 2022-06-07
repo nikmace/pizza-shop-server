@@ -12,12 +12,12 @@ import configuration from './config/configuration';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
-        // uri: `mongodb+srv://${
-        //   config.get('MONGO_USER') || process.env.MONGO_USER
-        // }:${
-        //   config.get('MONGO_PW') || process.env.MONGO_PW
-        // }@pizza-cluster.56ojo.mongodb.net/?retryWrites=true&w=majority`,
-        uri: `mongodb+srv://admin_user:eVn9Hcty@pizza-cluster.56ojo.mongodb.net/?retryWrites=true&w=majority`,
+        uri: `mongodb+srv://${
+          config.get('mongo_user') || process.env.MONGO_USER
+        }:${
+          config.get('mongo_pw') || process.env.MONGO_PW
+        }@pizza-cluster.56ojo.mongodb.net/?retryWrites=true&w=majority`,
+        // uri: `mongodb+srv://admin_user:eVn9Hcty@pizza-cluster.56ojo.mongodb.net/?retryWrites=true&w=majority`,
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }),
