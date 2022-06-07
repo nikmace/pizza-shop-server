@@ -14,7 +14,6 @@ async function bootstrap() {
   app.setGlobalPrefix('/api/v1');
 
   console.log(`Global prefix is set for: /api/v1`);
-  console.log(`Mongo User: ${config.get('mongo_user')}`);
 
   await app.listen(
     process.env.PORT || 5000,
