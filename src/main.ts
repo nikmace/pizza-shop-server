@@ -6,7 +6,7 @@ import { AppModule } from './app.module';
 async function bootstrap() {
   const corsConfig = {
     origin: ['http://localhost:3000', 'https://dodo-pizza.vercel.app/'],
-    methods: 'GET',
+    methods: 'GET, POST',
   };
 
   const app = await NestFactory.create(AppModule, { cors: corsConfig });
