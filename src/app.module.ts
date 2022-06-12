@@ -6,6 +6,8 @@ import PizzaModule from './pizza/pizza.module';
 import configuration from './config/configuration';
 import { OrderController } from './order/order.controller';
 import { OrderService } from './order/order.service';
+import { ValidationController } from './validation/validation.controller';
+import { ValidationService } from './validation/validation.service';
 
 @Module({
   imports: [
@@ -26,7 +28,7 @@ import { OrderService } from './order/order.service';
       inject: [ConfigService],
     }),
   ],
-  controllers: [OrderController],
-  providers: [OrderService],
+  controllers: [OrderController, ValidationController],
+  providers: [OrderService, ValidationService],
 })
 export class AppModule {}
