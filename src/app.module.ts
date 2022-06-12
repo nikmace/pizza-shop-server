@@ -4,6 +4,8 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import PizzaModule from './pizza/pizza.module';
 import configuration from './config/configuration';
+import { OrderController } from './order/order.controller';
+import { OrderService } from './order/order.service';
 
 @Module({
   imports: [
@@ -24,7 +26,7 @@ import configuration from './config/configuration';
       inject: [ConfigService],
     }),
   ],
-  controllers: [],
-  providers: [],
+  controllers: [OrderController],
+  providers: [OrderService],
 })
 export class AppModule {}
