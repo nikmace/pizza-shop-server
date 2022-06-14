@@ -29,6 +29,6 @@ export class OrderController {
 
   @Post()
   getAll(@Body() body: Order) {
-    return this.orderService.validateInput(body);
+    return this.orderService.saveOrder(body);
   }
 }
