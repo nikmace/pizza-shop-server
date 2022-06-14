@@ -4,15 +4,15 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 import PizzaModule from './pizza/pizza.module';
 import configuration from './config/configuration';
-import { OrderController } from './order/order.controller';
-import { OrderService } from './order/order.service';
 import { ValidationController } from './validation/validation.controller';
 import { ValidationService } from './validation/validation.service';
+import OrderModule from './order/order.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ load: [configuration] }),
     PizzaModule,
+    OrderModule,
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: async (config: ConfigService) => ({
@@ -28,7 +28,7 @@ import { ValidationService } from './validation/validation.service';
       inject: [ConfigService],
     }),
   ],
-  controllers: [OrderController, ValidationController],
-  providers: [OrderService, ValidationService],
+  controllers: [ValidationController],
+  providers: [ValidationService],
 })
 export class AppModule {}
