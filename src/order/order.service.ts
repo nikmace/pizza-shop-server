@@ -16,8 +16,8 @@ export class OrderService {
   constructor(@InjectModel('Order') private readonly order: Model<Order>) {}
   // ----------------------------------------------------------------
   async saveOrder(body: Order) {
-    const res: ValidationResponse = {
-      message: 'Saved to database',
+    let res: ValidationResponse = {
+      message: '',
       success: true,
       errors: [],
       errorCount: 0,
@@ -26,16 +26,25 @@ export class OrderService {
     // Make a mongoose model and save
     const doc = new this.order(body);
 
-    doc
+    await doc
       .save()
       .then((data) => {
         console.log(data);
+        res = {
+          ...res,
+          message: 'Заказ успешно отправлен! Ожидайте звонка от курьера😃',
+        };
       })
       .catch((err) => {
-        res.errors.push(err.toString());
-        res.success = false;
-        res.message = 'Errors occured when saving to DB';
-        res.errorCount++;
+        if (err) {
+          res = {
+            errors: [err.toString()],
+            success: false,
+            message:
+              'К сожалению, что-то пошло не так и мы не смогли обработать ваш заказ😔',
+            errorCount: 1,
+          };
+        }
       });
 
     return res;
