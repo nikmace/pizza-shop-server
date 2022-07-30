@@ -23,6 +23,10 @@ export type Order = {
   totalPrice: number;
 };
 
+export type Email = {
+  email: string;
+};
+
 @Controller('/order')
 export class OrderController {
   constructor(private readonly orderService: OrderService) {}
@@ -30,5 +34,10 @@ export class OrderController {
   @Post()
   getAll(@Body() body: Order) {
     return this.orderService.saveOrder(body);
+  }
+
+  @Post('/retrieve')
+  getOrdersByEmail(@Body() body: Email) {
+    return this.orderService.getOrdersByEmail(body.email);
   }
 }

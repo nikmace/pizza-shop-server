@@ -50,4 +50,7 @@ export class OrderService {
     return res;
   }
   // ----------------------------------------------------------------
+  async getOrdersByEmail(email: string) {
+    return await this.order.find({ email: { $eq: email } });
+  }
 }
